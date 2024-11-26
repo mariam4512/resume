@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family - Siti Mariam</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('image/one.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #383333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Fade-In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Bounce Animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #800040;
+            padding: 15px 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #b36b7e;
+            border-radius: 5px;
+        }
+
+        /* Clock Styling */
+        #clock {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            font-size: 1.2em;
+            color: #000000;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        /* Content */
+        .content {
+            text-align: center;
+            padding: 50px 20px;
+            flex-grow: 1;
+        }
+
+        .content h1 {
+            font-family: Lucida Calligraphy;
+            font-size: 2.5em;
+            color: #000000;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite; /* Bounce animation for the title */
+        }
+
+        /* Flex Container */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Family Member Card */
+        .family-card {
+            background-color: #f1f1e2;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 350px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation for cards */
+        }
+
+        .family-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .family-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-right: 1px solid #ccc;
+        }
+
+        .family-card-content {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .family-card h2 {
+            font-family: Cooper Black;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #800040;
+        }
+
+        .family-card dl {
+            margin: 0;
+        }
+
+        .family-card dt {
+            font-family: Magneto;
+            font-weight: bold;
+            color: #b9bf70;
+        }
+
+        .family-card dd {
+            font-family: Times New Roman;
+            margin: 0 0 10px 0;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 20px;
+            align-items: center;
+        }
+
+        .nav-buttons a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            background-color: #800040;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #b36b7e;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #800040;
+            color: white;
+            text-align: center;
+            padding: 3px 3px;
+            margin-top: 20px;
+        }
+
+        footer::before {
+            content: '';
+            display: block;
+            height: 5px;
+            width: 80%;
+            margin: 0 auto;
+            background: linear-gradient(to none, #b36b7e, #800040);
+            border-radius: 5px;
+        }
+
+        footer p {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <!-- Clock -->
+    <div id="clock"></div>
+    <script>
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clock.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="education.html">Education</a>
+        <a href="family.html">Family</a>
+        <a href="experience.html">Experience</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
+    <div class="content">
+        <h1>My Family</h1>
+        <img src="image/family cartoon.jpg" alt="Family Group Photo" style="width: 150%; max-width: 200px; margin: 0 auto; display: block; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <br><br>
+        <div class="flex-container">
+        <!-- Parent Section -->
+    <div class="flex-container parents-section">
+        <div class="family-card">
+            <img src="image/cool.jpg" alt="Father's Photo">
+            <div class="family-card-content">
+                <h2><center>Father</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Abdul Rahim bin Abd Halim</dd>
+                    <dt>Age:</dt><dd>54 years old</dd>
+                    <dt>Occupation:</dt><dd>Paddy Field Worker</dd>
+                    <dt>Hobby:</dt><dd>Fishing</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <img src="image/you.jpg" alt="Mother's Photo">
+            <div class="family-card-content">
+                <h2><center>Mother</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Nooraini binti Ahmad</dd>
+                    <dt>Age:</dt><dd>53 years old</dd>
+                    <dt>Occupation:</dt><dd>Housewife</dd>
+                    <dt>Hobby:</dt><dd>Cooking and planting </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sibling Section -->
+    <div class="flex-container siblings-section">
+        <div class="family-card">
+            <img src="image/peony.jpg" alt="Eldest Sister's Photo">
+            <div class="family-card-content">
+                <h2><center>Eldest Sister</center></h2>
+	          <br>
+                <dl>
+                    <dt>Name:</dt><dd>Farihah Aiman binti Abdul Rahim</dd>
+                    <dt>Age:</dt><dd>23 years old</dd>
+                    <dt>Occupation:</dt><dd>Student at UiTM Puncak Alam</dd>
+                    <dt>Hobby:</dt><dd>Reading</dd>
+                </dl>
+            </div>
+        </div>
+
+<div class="family-card">
+            <img src="image/pearl.jpg" alt="Eldest Sister's Photo">
+            <div class="family-card-content">
+                <h2><center>Second Sister</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Siti Aisyah binti Abdul Rahim</dd>
+                    <dt>Age:</dt><dd>20 years old</dd>
+                    <dt>Occupation:</dt><dd>Student at UiTM Merbok</dd>
+                    <dt>Hobby:</dt><dd>Eating</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="family-card">
+            <img src="image/landscape.png" alt="Eldest Sister's Photo">
+            <div class="family-card-content">
+                <h2><center>Me</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Siti Mariam binti Abdul Rahim</dd>
+                    <dt>Age:</dt><dd>20 years old</dd>
+                    <dt>Occupation:</dt><dd>Student at UiTM Merbok</dd>
+                    <dt>Hobby:</dt><dd>Reading</dd>
+                </dl>
+            </div>
+        </div>
+
+<div class="family-card">
+            <img src="image/waves.jpg" alt="Eldest Sister's Photo">
+            <div class="family-card-content">
+                <h2><center>Eldest Brother</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Abdul Hadi Bin Abdul Rahim</dd>
+                    <dt>Age:</dt><dd>19 years old</dd>
+                    <dt>Occupation:</dt><dd>Student at UiTM Dungun</dd>
+                    <dt>Hobby:</dt><dd>Playing games</dd>
+
+                </dl>
+            </div>
+        </div>
+
+<div class="family-card">
+            <img src="image/purple.jpg" alt="Eldest Sister's Photo">
+            <div class="family-card-content">
+                <h2><center>Youngest Brother</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Mohd Hazim Wafiy Bin Abdul Rahim</dd>
+                    <dt>Age:</dt><dd>14 years old</dd>
+                    <dt>Occupation:</dt><dd>Student at SMK Alor Janggus</dd>
+                    <dt>Hobby:</dt><dd>Playing Football</dd>
+                </dl>
+            </div>
+        </div>
+
+<div class="family-card">
+            <img src="image/view.jpg" alt="Eldest Sister's Photo">
+            <div class="family-card-content">
+                <h2><center>Youngest Brother</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Ahmad Izzuddin Bin Abdul Rahim</dd>
+                    <dt>Age:</dt><dd>13 years old</dd>
+                    <dt>Occupation:</dt><dd>Student at KASAH</dd>
+                    <dt>Hobby:</dt><dd>Playing games</dd>
+                </dl>
+            </div>
+        </div>
+
+<div class="family-card">
+            <img src="image/marble.jpg" alt="Eldest Sister's Photo">
+            <div class="family-card-content">
+                <h2><center>Youngest Sister</center></h2>
+		    <br>
+                <dl>
+                    <dt>Name:</dt><dd>Nurul Huda binti Abdul Rahim</dd>
+                    <dt>Age:</dt><dd>10 years old</dd>
+                    <dt>Occupation:</dt><dd>Student at SK Dato' Shaari</dd>
+                    <dt>Hobby:</dt><dd>Watch Youtube</dd>
+                </dl>
+            </div>
+        </div>
+	</div>
+    </div>  
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <a href="education.html" class="button prev">&#9664;</a>
+        <a href="experience.html" class="button next">&#9654;</a>
+    </div>
+
+    <footer>
+        <p>© mariam 2024</p>
+    </footer>
+</body>
+</html>

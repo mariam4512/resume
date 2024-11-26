@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Siti Mariam</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Times New Roman;
+            color: #383333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('image/soft.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #800040;
+            padding: 15px 10px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .navbar a {
+            font-family: Arial, sans-serif;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+            opacity: 0;
+            animation: slideIn 1s ease-in-out forwards;
+        }
+
+        .navbar a:hover {
+            background-color: #b36b7e;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            flex-direction: column;
+            padding: 80px 20px;
+            flex: 1;
+            z-index: 1;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .hero-section h1 {
+            font-size: 3.2em;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .hero-section p {
+            font-size: 1.7em;
+            color: #000000;
+            margin-top: 10px;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .nav-buttons .button {
+            background-color: #800040;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .nav-buttons .button:hover {
+            background-color: #b36b7e;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #800040;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.2em;
+            }
+
+            .hero-section p {
+                font-size: 1.2em;
+            }
+
+            .navbar a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 1.8em;
+            }
+
+            .hero-section p {
+                font-size: 1em;
+            }
+
+            .navbar a {
+                padding: 5px 10px;
+                font-size: 0.8em;
+            }
+
+            .nav-buttons .button {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html" class="active" style="animation-delay: 0s;">Home</a>
+        <a href="biodata.html" style="animation-delay: 0.2s;">Biodata</a>
+        <a href="education.html" style="animation-delay: 0.4s;">Education</a>
+        <a href="family.html" style="animation-delay: 0.6s;">Family</a>
+        <a href="experience.html" style="animation-delay: 0.8s;">Experience</a>
+        <a href="gallery.html" style="animation-delay: 1s;">Gallery</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Welcome to Mariam's Website</h1>
+        <p>Discover my journey, skills, and portfolio.</p>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <a href="biodata.html" class="button next">&#9654;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© mariam 2024</p>
+    </footer>
+
+</body>
+</html>
